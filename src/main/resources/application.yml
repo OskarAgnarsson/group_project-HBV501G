@@ -4,9 +4,9 @@ server:
         include-binding-errors: always
 spring:
     datasource:
-        password: 8d62da90a71843da827acaf6d353148a139b17f68844ab521e8b899ae86a0ee0
-        username: chqgivcoqgisqy
-        url: jdbc:postgresql://${DB_HOST}:5432/dem6g18kc1t4vo?user=chqgivcoqgisqy&password=8d62da90a71843da827acaf6d353148a139b17f68844ab521e8b899ae86a0ee0
+        password: 43a31910fdf552dd729763532f66b4c1d8d317efd0b7f10c11bc175bb496337f
+        username: xuyzpgwpvufbpb
+        url: jdbc:postgresql://${DB_HOST}:5432/d902ihl517e033?user=xuyzpgwpvufbpb&password=43a31910fdf552dd729763532f66b4c1d8d317efd0b7f10c11bc175bb496337f
         driver-class-name: org.postgresql.Driver
     jpa:
         properties:
