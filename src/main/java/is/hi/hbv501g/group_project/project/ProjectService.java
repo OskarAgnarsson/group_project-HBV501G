@@ -1,13 +1,12 @@
 package is.hi.hbv501g.group_project.project;
 
 import is.hi.hbv501g.group_project.appuser.AppUser;
+import is.hi.hbv501g.group_project.requests.AddProjectRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 /***
  * This class implements a service for the projects. The service adds new projects to the project repository, finds all project the user is a member of, and finds all projects by ID.
@@ -39,6 +38,15 @@ public class ProjectService {
      */
     public List<Project> findByUser(AppUser user) {
         List<ProjectMembers> projectMembersList = projectMembersRepository.findByUserId(user.getId());
+        List<Long> projectIdList = new ArrayList<>();
+        for(ProjectMembers pm : projectMembersList){
+            projectIdList.add(pm.getProjectId());
+        }
+        return projectRepository.findByIdIn(projectIdList);
+    }
+
+    public List<Project> findByUserId(long id) {
+        List<ProjectMembers> projectMembersList = projectMembersRepository.findByUserId(id);
         List<Long> projectIdList = new ArrayList<>();
         for(ProjectMembers pm : projectMembersList){
             projectIdList.add(pm.getProjectId());

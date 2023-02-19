@@ -2,6 +2,7 @@ package is.hi.hbv501g.group_project.registration;
 
 import is.hi.hbv501g.group_project.appuser.AppUser;
 import is.hi.hbv501g.group_project.appuser.AppUserRepository;
+import is.hi.hbv501g.group_project.requests.RegistrationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;

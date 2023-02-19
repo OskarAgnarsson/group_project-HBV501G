@@ -70,4 +70,8 @@ public class AppUserService implements UserDetailsService {
         }
         return emails;
     }
+
+    public Boolean existsByEmail(String email) {
+        return appUserRepository.existsByEmail(email);
+    }
 }

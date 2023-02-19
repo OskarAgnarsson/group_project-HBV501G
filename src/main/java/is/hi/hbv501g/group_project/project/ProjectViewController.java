@@ -4,6 +4,7 @@ import is.hi.hbv501g.group_project.appuser.AppUser;
 import is.hi.hbv501g.group_project.appuser.AppUserEmail;
 import is.hi.hbv501g.group_project.appuser.AppUserRepository;
 import is.hi.hbv501g.group_project.appuser.AppUserService;
+import is.hi.hbv501g.group_project.requests.AddProjectMemberRequest;
 import is.hi.hbv501g.group_project.security.config.CustomPermissionEvaluatorService;
 import is.hi.hbv501g.group_project.task.TaskService;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,5 @@
-package is.hi.hbv501g.group_project.project;
+package is.hi.hbv501g.group_project.requests;
 
-import is.hi.hbv501g.group_project.appuser.AppUser;
-import is.hi.hbv501g.group_project.appuser.AppUserRole;
-import is.hi.hbv501g.group_project.registration.RegistrationRequest;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

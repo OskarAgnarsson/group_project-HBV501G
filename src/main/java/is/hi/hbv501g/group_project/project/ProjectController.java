@@ -1,14 +1,12 @@
 package is.hi.hbv501g.group_project.project;
 
 import is.hi.hbv501g.group_project.appuser.AppUser;
-import is.hi.hbv501g.group_project.registration.RegistrationRequest;
+import is.hi.hbv501g.group_project.requests.AddProjectRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;

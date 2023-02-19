@@ -1,6 +1,7 @@
 package is.hi.hbv501g.group_project.task;
 
 
+import is.hi.hbv501g.group_project.requests.AddTaskRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

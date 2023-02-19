@@ -1,4 +1,4 @@
-package is.hi.hbv501g.group_project.task;
+package is.hi.hbv501g.group_project.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

@@ -3,10 +3,9 @@ package is.hi.hbv501g.group_project.registration;
 import is.hi.hbv501g.group_project.appuser.AppUser;
 import is.hi.hbv501g.group_project.appuser.AppUserRole;
 import is.hi.hbv501g.group_project.appuser.AppUserService;
+import is.hi.hbv501g.group_project.requests.RegistrationRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 /***
  * This class implements a service for the registration of users. The service adds new user to the app user repository.
