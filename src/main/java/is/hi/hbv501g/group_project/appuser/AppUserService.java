@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /***
  * This class implements a service for the app users. The service adds tasks to the repository of tasks.
@@ -73,5 +74,9 @@ public class AppUserService implements UserDetailsService {
 
     public Boolean existsByEmail(String email) {
         return appUserRepository.existsByEmail(email);
+    }
+
+    public Optional<AppUser> findByEmail(String email) {
+        return appUserRepository.findByEmail(email);
     }
 }

@@ -26,7 +26,7 @@ public class Comment {
      * @param user
      * @param text
      */
-    public Comment(long id, long taskId, String user, String text) {
+    public Comment( long taskId, String user, String text) {
         this.id = id;
         this.taskId = taskId;
         this.userName = user;
