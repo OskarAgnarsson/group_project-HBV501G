@@ -11,7 +11,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class AddCommentRequest {
-    private final long taskId;
-    private final String commenter;
-    private final String text;
+    private long taskId;
+    private String commenter;
+    private String text;
 }

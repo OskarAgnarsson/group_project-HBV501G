@@ -1,9 +1,7 @@
 package is.hi.hbv501g.group_project.appuser;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +20,7 @@ import java.util.Collections;
 @NoArgsConstructor
 @Entity
 @Table
+@AllArgsConstructor
 public class AppUser implements UserDetails {
     @SequenceGenerator(
             name = "student_sequence",
@@ -33,15 +32,22 @@ public class AppUser implements UserDetails {
             strategy = GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
+    @JsonProperty
     private Long id;
+    @JsonProperty
     private String firstName;
+    @JsonProperty
     private String lastName;
-
+    @JsonProperty
     private String email;
+    @JsonProperty
     private String password;
     @Enumerated(EnumType.STRING)
+    @JsonProperty
     private AppUserRole appUserRole;
+    @JsonProperty
     private Boolean locked = false;
+    @JsonProperty
     private Boolean enabled = true;
 
     /***

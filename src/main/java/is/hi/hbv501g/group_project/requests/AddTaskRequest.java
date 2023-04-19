@@ -13,8 +13,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class AddTaskRequest {
-    private final String name;
-    private final String deadline;
-    private final Long ownerUserId;
-    private final String status;
+    private String name;
+    private String deadline;
+    private Long ownerUserId;
+    private String status;
 }
