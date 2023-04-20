@@ -33,6 +33,12 @@ public class TaskRestController {
         return true;
     }
 
+    @PostMapping("/api/edittask")
+    public boolean editTask(@RequestBody Task task) {
+        taskService.editTask(task);
+        return true;
+    }
+
     @GetMapping("/api/comments/{id}")
     public List<Comment> getComments(@PathVariable("id") long taskId) {
         return taskService.findCommentByTaskId(taskId);

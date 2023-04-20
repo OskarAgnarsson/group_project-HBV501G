@@ -1,7 +1,15 @@
 package is.hi.hbv501g.group_project.task;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
 import java.util.Date;
+import java.util.Locale;
 
 /***
  * This class implements a task for the projects. The task has an ID, project ID, name, user ID, starting time, deadline, and task status.
@@ -15,8 +23,8 @@ public class Task {
     private long id;
     private long projectId;
     private String name;
+    private String description;
     private Long ownerUserId;
-    private Date start;
     private Date deadline;
     private String status;
 
@@ -25,20 +33,35 @@ public class Task {
 
     /***
      * This Constructs a task with a specific ID, project ID, name, user ID, start time, deadline, and status of the task.
-     * @param id The ID of the task.
      * @param projectId The ID of the project.
      * @param name The name of the task.
      * @param ownerUserId The ID of the user.
-     * @param start The starting time of the task.
      * @param deadline The deadline for the task
      * @param status The status for the task.
      */
-    public Task(long projectId, String name, Long ownerUserId, Date start, Date deadline, String status) {
+    public Task(long projectId, String name, String description, Long ownerUserId, Date deadline, String status) {
         this.projectId = projectId;
         this.name = name;
+        this.description = description;
         this.ownerUserId = ownerUserId;
-        this.start = start;
         this.deadline = deadline;
+        this.status = status;
+    }
+
+    @JsonCreator
+    public Task(@JsonProperty("id") long id,
+                @JsonProperty("projectId") long projectId,
+                @JsonProperty("name") String name,
+                @JsonProperty("description") String description,
+                @JsonProperty("deadline") String deadline,
+                @JsonProperty("ownerUserId") long ownerId,
+                @JsonProperty("status") String status) {
+        this.id = id;
+        this.projectId = projectId;
+        this.name = name;
+        this.description = description;
+        this.deadline = Date.from(LocalDate.parse(deadline).atStartOfDay().toInstant(ZoneOffset.UTC));
+        this.ownerUserId = ownerId;
         this.status = status;
     }
 
@@ -72,14 +95,6 @@ public class Task {
 
     public void setOwnerUserId(Long userId) {
         this.ownerUserId = userId;
-    }
-
-    public Date getStart() {
-        return start;
-    }
-
-    public void setStart(Date start) {
-        this.start = start;
     }
 
     public Date getDeadline() {

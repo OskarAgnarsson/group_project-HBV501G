@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class UserInfoResponse {
     private long id;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String email;
 }

@@ -15,13 +15,15 @@ import lombok.ToString;
 @ToString
 public class AddTaskRequest {
     private String name;
+    private String description;
     private String deadline;
     private Long ownerUserId;
     private String status;
 
     @JsonCreator
-    public AddTaskRequest(@JsonProperty("name") String name, @JsonProperty("deadline") String deadline, @JsonProperty("ownerUserId") long ownerUserId, @JsonProperty("status") String status) {
+    public AddTaskRequest(@JsonProperty("name") String name,@JsonProperty("description") String description, @JsonProperty("deadline") String deadline, @JsonProperty("ownerUserId") long ownerUserId, @JsonProperty("status") String status) {
         this.name = name;
+        this.description = description;
         this.deadline = deadline;
         this.ownerUserId = ownerUserId;
         this.status = status;

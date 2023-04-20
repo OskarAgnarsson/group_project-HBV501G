@@ -31,8 +31,8 @@ public class TaskService {
         taskRepository.save(
                 new Task(projectId,
                         request.getName(),
+                        request.getDescription(),
                         request.getOwnerUserId(),
-                        new Date(),
                         Date.from(LocalDate.parse(request.getDeadline()).atStartOfDay().toInstant(ZoneOffset.UTC)),
                         request.getStatus())
         );

@@ -58,7 +58,7 @@ public class TaskRestControllerTest extends AbstractTest{
     @Test
     public void testAddTask() throws Exception {
         String uri = "/api/addtask/1";
-        AddTaskRequest addTaskRequest = new AddTaskRequest("do thing","2023-12-24",1L,"Not Real");
+        AddTaskRequest addTaskRequest = new AddTaskRequest("do thing","yesm","2023-12-24",1L,"Not Real");
         String inputJson = super.mapToJson(addTaskRequest);
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
