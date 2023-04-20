@@ -39,7 +39,7 @@ public class AppUserRestControllerTest extends AbstractTest{
     @Test
     public void testRegistrationEmailTaken() throws Exception {
         String uri = "/api/register";
-        RegistrationRequest registrationRequest = new RegistrationRequest("Oskar","Agnarsson","lol","oskaragnarson@gmail.com");
+        RegistrationRequest registrationRequest = new RegistrationRequest("Oskar","Agnarsson","lol","oskaragnarson@gmail.com",6975676);
         String inputJson = super.mapToJson(registrationRequest);
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)

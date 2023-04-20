@@ -18,11 +18,14 @@ public class AppUserResponse {
     @JsonProperty
     private String email;
 
+    private int phoneNumber;
+
     @JsonCreator
-    public AppUserResponse(@JsonProperty("id") long id, @JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("email") String email) {
+    public AppUserResponse(@JsonProperty("id") long id, @JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("email") String email, @JsonProperty("phoneNumber") int phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 }

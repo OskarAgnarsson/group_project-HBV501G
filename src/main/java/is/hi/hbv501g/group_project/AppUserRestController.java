@@ -59,13 +59,13 @@ public class AppUserRestController {
     @GetMapping("/api/user/{id}")
     public AppUserResponse getUser(@PathVariable("id") long userId) {
         AppUser user = appUserService.findById(userId);
-        return new AppUserResponse(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail());
+        return new AppUserResponse(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getPhoneNumber());
     }
 
     @PostMapping("/api/user")
     public AppUserResponse getUserByEmail(@RequestBody AddProjectMemberRequest addProjectMemberRequest) {
         AppUser user = appUserService.findByEmail(addProjectMemberRequest.getEmail()).get();
-        return new AppUserResponse(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail());
+        return new AppUserResponse(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail(),user.getPhoneNumber());
     }
 
     @GetMapping("/api/projectmembers/{id}")
@@ -73,7 +73,7 @@ public class AppUserRestController {
         List<AppUserResponse> responses = new ArrayList<>();
         List<AppUser> userList = projectMembersService.findMembersByProjectId(projectId);
         for (AppUser a: userList) {
-            responses.add(new AppUserResponse(a.getId(),a.getFirstName(),a.getLastName(),a.getEmail()));
+            responses.add(new AppUserResponse(a.getId(),a.getFirstName(),a.getLastName(),a.getEmail(),a.getPhoneNumber()));
         }
         return responses;
     }

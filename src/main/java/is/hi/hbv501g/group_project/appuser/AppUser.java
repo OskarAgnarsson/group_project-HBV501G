@@ -42,6 +42,7 @@ public class AppUser implements UserDetails {
     private String email;
     @JsonProperty
     private String password;
+    private int phoneNumber;
     @Enumerated(EnumType.STRING)
     @JsonProperty
     private AppUserRole appUserRole;
@@ -58,11 +59,12 @@ public class AppUser implements UserDetails {
      * @param password A password for the user's account
      * @param appUserRole The user's role which signifies the access available to the user.
      */
-    public AppUser(String firstName, String lastName, String email, String password, AppUserRole appUserRole) {
+    public AppUser(String firstName, String lastName, String email, String password,int phoneNumber, AppUserRole appUserRole) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.phoneNumber = phoneNumber;
         this.appUserRole = appUserRole;
     }
 

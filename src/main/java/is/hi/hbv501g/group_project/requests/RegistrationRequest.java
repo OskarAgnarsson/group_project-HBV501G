@@ -18,12 +18,14 @@ public class RegistrationRequest {
     private String lastName;
     private String password;
     private String email;
+    private int phoneNumber;
 
     @JsonCreator
-    public RegistrationRequest(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("password") String password, @JsonProperty("email") String email) {
+    public RegistrationRequest(@JsonProperty("firstName") String firstName, @JsonProperty("lastName") String lastName, @JsonProperty("password") String password, @JsonProperty("email") String email, @JsonProperty("phoneNumber") int phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 }
