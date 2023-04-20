@@ -2,6 +2,7 @@ package is.hi.hbv501g.group_project.task;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 import lombok.SneakyThrows;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ import java.util.Locale;
  */
 @Entity
 @Table(name = "tasks")
+@Getter
 public class Task {
 
     @Id
