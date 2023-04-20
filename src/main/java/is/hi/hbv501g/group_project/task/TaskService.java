@@ -3,10 +3,16 @@ package is.hi.hbv501g.group_project.task;
 
 import is.hi.hbv501g.group_project.requests.AddTaskRequest;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.DateFormatter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -27,13 +33,15 @@ public class TaskService {
      * @param request The name, deadline, and owner of the task.
      * @param projectId The ID of the project.
      */
+    @SneakyThrows
     public void saveTask(AddTaskRequest request, Long projectId) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         taskRepository.save(
                 new Task(projectId,
                         request.getName(),
                         request.getDescription(),
                         request.getOwnerUserId(),
-                        Date.from(LocalDate.parse(request.getDeadline()).atStartOfDay().toInstant(ZoneOffset.UTC)),
+                        dateFormat.parse(request.getDeadline()),
                         request.getStatus())
         );
     }

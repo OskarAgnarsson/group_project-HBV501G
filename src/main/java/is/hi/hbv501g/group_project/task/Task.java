@@ -2,6 +2,7 @@ package is.hi.hbv501g.group_project.task;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.SneakyThrows;
 
 import javax.persistence.*;
 import java.text.DateFormat;
@@ -48,6 +49,7 @@ public class Task {
         this.status = status;
     }
 
+    @SneakyThrows
     @JsonCreator
     public Task(@JsonProperty("id") long id,
                 @JsonProperty("projectId") long projectId,
@@ -56,11 +58,12 @@ public class Task {
                 @JsonProperty("deadline") String deadline,
                 @JsonProperty("ownerUserId") long ownerId,
                 @JsonProperty("status") String status) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         this.id = id;
         this.projectId = projectId;
         this.name = name;
         this.description = description;
-        this.deadline = Date.from(LocalDate.parse(deadline).atStartOfDay().toInstant(ZoneOffset.UTC));
+        this.deadline = dateFormat.parse(deadline);
         this.ownerUserId = ownerId;
         this.status = status;
     }
