@@ -62,7 +62,7 @@ public class AppUserRestController {
         return new AppUserResponse(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail());
     }
 
-    @GetMapping("/api/user")
+    @PostMapping("/api/user")
     public AppUserResponse getUserByEmail(@RequestBody AddProjectMemberRequest addProjectMemberRequest) {
         AppUser user = appUserService.findByEmail(addProjectMemberRequest.getEmail()).get();
         return new AppUserResponse(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail());
