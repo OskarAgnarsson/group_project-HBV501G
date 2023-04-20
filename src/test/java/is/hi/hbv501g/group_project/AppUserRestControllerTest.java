@@ -37,7 +37,7 @@ public class AppUserRestControllerTest extends AbstractTest{
     }
 
     @Test
-    public void testRegistration() throws Exception {
+    public void testRegistrationEmailTaken() throws Exception {
         String uri = "/api/register";
         RegistrationRequest registrationRequest = new RegistrationRequest("Oskar","Agnarsson","lol","oskaragnarson@gmail.com");
         String inputJson = super.mapToJson(registrationRequest);
@@ -52,7 +52,7 @@ public class AppUserRestControllerTest extends AbstractTest{
 
     @Test
     public void testGetUser() throws Exception {
-        String uri = "/api/user?userId=1";
+        String uri = "/api/user/1";
         MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
                 .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
         int status = mvcResult.getResponse().getStatus();

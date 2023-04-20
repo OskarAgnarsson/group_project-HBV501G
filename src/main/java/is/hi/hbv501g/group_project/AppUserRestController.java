@@ -56,9 +56,15 @@ public class AppUserRestController {
         return ResponseEntity.ok(new MessageResponse("User registered successfully"));
     }
 
-    @GetMapping("/api/user")
-    public AppUserResponse getUser(@RequestParam long userId) {
+    @GetMapping("/api/user/{id}")
+    public AppUserResponse getUser(@PathVariable("id") long userId) {
         AppUser user = appUserService.findById(userId);
+        return new AppUserResponse(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail());
+    }
+
+    @GetMapping("/api/user")
+    public AppUserResponse getUserByEmail(@RequestBody AddProjectMemberRequest addProjectMemberRequest) {
+        AppUser user = appUserService.findByEmail(addProjectMemberRequest.getEmail()).get();
         return new AppUserResponse(user.getId(),user.getFirstName(),user.getLastName(),user.getEmail());
     }
 

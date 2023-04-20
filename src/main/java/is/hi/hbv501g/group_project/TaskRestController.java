@@ -22,6 +22,11 @@ public class TaskRestController {
         return taskService.findByProjectId(projectId);
     }
 
+    @GetMapping("/api/task/{id}")
+    public Task getTaskById(@PathVariable("id") long taskId) {
+        return taskService.findByTaskId(taskId);
+    }
+
     @PostMapping("/api/addtask/{id}")
     public boolean addTask(@RequestBody AddTaskRequest addTaskRequest, @PathVariable("id") long projectId) {
         taskService.saveTask(addTaskRequest,projectId);
